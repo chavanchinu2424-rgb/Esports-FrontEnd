@@ -1,0 +1,1 @@
+Hello Gemini, I have an assignment which is " Microsoft Applied Skills: Create and manage automated processes by using Power Automate " . I want you to guide me through this whole process stepwise. in this assignment there are task in the form of mails which i have to complete one by one so i will send each mail one by one according to that you guide me
