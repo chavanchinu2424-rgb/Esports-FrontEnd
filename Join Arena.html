@@ -8,18 +8,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-neon: #00f2ff; /* Cyan Neon */
-            --secondary-neon: #7000ff; /* Purple Neon */
+            --primary-neon: #00f2ff; 
+            --secondary-neon: #7000ff; 
             --bg-dark: #0a0a0c;
             --card-bg: #16161a;
             --text-main: #e0e0e0;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Rajdhani', sans-serif;
@@ -29,7 +25,6 @@
             overflow-x: hidden;
         }
 
-        /* --- Header & Navigation --- */
         header {
             padding: 20px 5%;
             display: flex;
@@ -48,6 +43,7 @@
             color: var(--primary-neon);
             text-transform: uppercase;
             letter-spacing: 2px;
+            text-decoration: none;
         }
 
         nav a {
@@ -59,15 +55,12 @@
             transition: 0.3s;
         }
 
-        nav a:hover {
-            color: var(--primary-neon);
-        }
+        nav a:hover { color: var(--primary-neon); }
 
-        /* --- Hero Section --- */
         .hero {
-            height: 50vh;
+            height: 40vh;
             background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), 
-                        url('https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+                        url('https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -80,18 +73,12 @@
 
         .hero h1 {
             font-family: 'Orbitron', sans-serif;
-            font-size: 4rem;
+            font-size: 3.5rem;
             text-transform: uppercase;
             color: #fff;
             text-shadow: 0 0 20px var(--primary-neon);
         }
 
-        .hero p {
-            font-size: 1.5rem;
-            color: var(--primary-neon);
-        }
-
-        /* --- Main Content Layout --- */
         .container {
             max-width: 1100px;
             margin: 50px auto;
@@ -101,7 +88,6 @@
             padding: 0 20px;
         }
 
-        /* --- Participation Form --- */
         .form-section {
             background: var(--card-bg);
             padding: 40px;
@@ -110,23 +96,8 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        h2 {
-            font-family: 'Orbitron', sans-serif;
-            margin-bottom: 25px;
-            color: #fff;
-            text-transform: uppercase;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-            color: #ccc;
-        }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: bold; color: #ccc; }
 
         input, select, textarea {
             width: 100%;
@@ -136,12 +107,6 @@
             color: #fff;
             border-radius: 4px;
             font-size: 1rem;
-        }
-
-        input:focus {
-            outline: none;
-            border-color: var(--primary-neon);
-            box-shadow: 0 0 5px var(--primary-neon);
         }
 
         .btn-submit {
@@ -155,44 +120,16 @@
             cursor: pointer;
             width: 100%;
             font-size: 1.1rem;
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: 0.3s;
         }
 
-        .btn-submit:hover {
-            transform: scale(1.02);
-            box-shadow: 0 0 20px var(--primary-neon);
-        }
+        .btn-submit:hover { box-shadow: 0 0 20px var(--primary-neon); }
 
-        /* --- Connect Section --- */
         .connect-sidebar {
             background: var(--card-bg);
             padding: 30px;
             border-radius: 10px;
-            height: fit-content;
             border: 1px solid #333;
-        }
-
-        .social-links {
-            list-style: none;
-            margin-top: 20px;
-        }
-
-        .social-links li {
-            margin-bottom: 15px;
-        }
-
-        .social-links a {
-            color: #bbb;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            font-size: 1.1rem;
-            transition: 0.3s;
-        }
-
-        .social-links a:hover {
-            color: var(--primary-neon);
-            padding-left: 10px;
         }
 
         .discord-btn {
@@ -207,126 +144,118 @@
             margin-top: 20px;
         }
 
-        /* --- Footer --- */
-        footer {
-            text-align: center;
-            padding: 40px;
-            border-top: 1px solid #333;
-            margin-top: 50px;
-            color: #666;
-        }
+        footer { text-align: center; padding: 40px; border-top: 1px solid #333; margin-top: 50px; }
 
-        /* Responsive Design */
         @media (max-width: 900px) {
-            .container {
-                grid-template-columns: 1fr;
-            }
-            .hero h1 {
-                font-size: 2.5rem;
-            }
+            .container { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">ARENA NEXUS</div>
+        <a href="FrontEnd.html" class="logo">ARENA NEXUS</a>
         <nav>
-            <a href="#">Home</a>
-            <a href="#">Tournaments</a>
-            <a href="#">Rankings</a>
-            <a href="#">Support</a>
+            <a href="FrontEnd.html">Home</a>
+            <a href="Championship webpage.html">Tournaments</a>
+            <a href="Analytics webpage.html">Rankings</a>
         </nav>
     </header>
 
     <section class="hero">
         <h1>JOIN THE ARENA</h1>
-        <p>Your journey to pro gaming starts here.</p>
+        <p style="color: var(--primary-neon);">Your journey to pro gaming starts here.</p>
     </section>
 
     <div class="container">
-        <!-- Participation Form -->
         <main class="form-section">
-            <h2>Tournament Registration</h2>
+            <h2 style="font-family: 'Orbitron'; margin-bottom: 20px;">Tournament Registration</h2>
+            
+            <!-- FORM START -->
             <form id="participationForm">
                 <div class="form-group">
-                    <label for="fullName">Player Name (Real Name)</label>
-                    <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" placeholder="Enter your full name" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="gamerTag">Gamer ID / In-Game Name</label>
-                    <input type="text" id="gamerTag" name="gamerTag" placeholder="e.g. ShadowSlayer_99" required>
+                    <label for="gamerTag">Gamer Tag</label>
+                    <input type="text" id="gamerTag" placeholder="e.g. HYDRAxChinuu" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" placeholder="example@email.com" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="gameChoice">Select Your Match</label>
-                    <select id="gameChoice" name="gameChoice" required>
+                    <label for="gameChoice">Match Selection</label>
+                    <select id="gameChoice" required>
                         <option value="">-- Choose a Game --</option>
-                        <option value="valorant">Valorant Pro Cup</option>
-                        <option value="league">League of Legends Masters</option>
-                        <option value="csgo">CS2 Global Offensive</option>
-                        <option value="dota">Dota 2 Invitational</option>
+                        <option value="Valorant Pro Cup">Valorant Pro Cup</option>
+                        <option value="League Masters">League of Legends Masters</option>
+                        <option value="CS2 Global">CS2 Global Offensive</option>
                     </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="experience">Experience Level</label>
-                    <select id="experience" name="experience">
-                        <option value="rookie">Rookie (New to Tournaments)</option>
-                        <option value="intermediate">Intermediate (Amateur Leagues)</option>
-                        <option value="pro">Semi-Pro / Professional</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="message">Additional Team Info (Optional)</label>
-                    <textarea id="message" name="message" rows="4" placeholder="Mention teammates or specific hardware requirements..."></textarea>
                 </div>
 
                 <button type="submit" class="btn-submit">CONFIRM ENTRY</button>
             </form>
+            <!-- FORM END -->
         </main>
 
-        <!-- Sidebar / Connect With Us -->
         <aside class="connect-sidebar">
-            <h2>Connect With Us</h2>
-            <p>Need help or looking for a team? Join our community platforms:</p>
-            
+            <h2 style="font-family: 'Orbitron'; font-size: 1.2rem;">Connect With Us</h2>
+            <p style="font-size: 0.9rem; color: #aaa; margin-top: 10px;">Join our community platforms:</p>
             <a href="#" class="discord-btn">JOIN OUR DISCORD</a>
-
-            <ul class="social-links">
-                <li><a href="#">𝕏 Twitter / X</a></li>
-                <li><a href="#">▶ YouTube Gaming</a></li>
-                <li><a href="#">📺 Twitch Channel</a></li>
-                <li><a href="#">📷 Instagram</a></li>
-            </ul>
-
-            <div style="margin-top: 30px; border-top: 1px solid #444; padding-top: 20px;">
-                <p><strong>Support Email:</strong><br>
-                arena-support@nexus.com</p>
-                <p style="margin-top: 10px;"><strong>Response Time:</strong><br>
-                Under 24 hours</p>
-            </div>
         </aside>
     </div>
 
     <footer>
-        <p>&copy; 2024 Arena Nexus Esports. All Rights Reserved. | Terms of Service | Privacy Policy</p>
+        <a href="FrontEnd.html" style="color: var(--primary-neon); text-decoration: none; font-weight: bold; display: block; margin-bottom: 15px;">← RETURN TO MAIN HUB</a>
+        <p>&copy; 2024 Arena Nexus Esports. All Rights Reserved.</p>
     </footer>
 
-    <script>
-        // Simple form submission feedback
-        document.getElementById('participationForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('REGISTRATION SUCCESSFUL! \nWelcome to the Arena. Check your email for match details.');
-            this.reset();
-        });
+    <!-- FIREBASE SYSTEM -->
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+      import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+      // Your exact Firebase keys from screenshots
+      const firebaseConfig = {
+        apiKey: "AIzaSyBiP31P4r3it5-cLmlfmKCdYQzfQ77dD5A",
+        authDomain: "rivals-nexus-f28f0.firebaseapp.com",
+        projectId: "rivals-nexus-f28f0",
+        storageBucket: "rivals-nexus-f28f0.firebasestorage.app",
+        messagingSenderId: "975171196085",
+        appId: "1:975171196085:web:da142147b2f1c0f0fa1afc",
+        measurementId: "G-69B5HM9GLF"
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+
+      // Handle Form Submission
+      const form = document.getElementById('participationForm');
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        // Collecting the data from inputs
+        const userData = {
+          fullName: document.getElementById('fullName').value,
+          gamerTag: document.getElementById('gamerTag').value,
+          match: document.getElementById('gameChoice').value,
+          submittedAt: serverTimestamp()
+        };
+
+        try {
+          // Add to "registrations" collection
+          const docRef = await addDoc(collection(db, "registrations"), userData);
+          
+          console.log("Document saved with ID: ", docRef.id);
+          alert("REGISTRATION SUCCESSFUL! Your data is now in the database.");
+          form.reset(); 
+        } catch (error) {
+          console.error("Firebase Error: ", error);
+          alert("ERROR: Data was not saved. " + error.message);
+        }
+      });
     </script>
 </body>
 </html>

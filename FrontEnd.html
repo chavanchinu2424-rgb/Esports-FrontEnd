@@ -103,6 +103,8 @@
             display: flex;
             overflow: hidden;
             transition: 0.4s;
+            text-decoration: none; /* Keep links from changing text color */
+            color: inherit;
         }
 
         .elite-card:hover {
@@ -188,6 +190,8 @@
             text-transform: uppercase;
             clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
             transition: 0.3s;
+            text-decoration: none;
+            display: inline-block;
         }
 
         .btn:hover { background: #fff; color: var(--primary-red); box-shadow: 0 0 20px #fff; }
@@ -229,13 +233,15 @@
             <section class="hero-section">
                 <h1>DOMINATE THE ARENA</h1>
                 <p>High-performance infrastructure for the world's most competitive gaming communities.</p>
-                <button class="btn" onclick="alert('Connecting to servers...')">Join Tournament</button>
+                <!-- LINKED: Tournament Registration -->
+                <a href="Join Arena.html" class="btn">Join Tournament</a>
             </section>
 
             <h2 style="margin-bottom: 2rem; text-align: center; font-size: 2rem;">Elite Tier Infrastructure</h2>
             <div class="elite-grid">
-                <!-- Championships -->
-                <div class="elite-card">
+                
+                <!-- LINKED: Championships -->
+                <a href="Championship webpage.html" class="elite-card">
                     <div class="card-img-box">
                         <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=800" class="card-img">
                     </div>
@@ -243,10 +249,10 @@
                         <h3>Championships</h3>
                         <p>Managing the world's most prestigious Pro-Circuits and Arena events.</p>
                     </div>
-                </div>
+                </a>
 
-                <!-- Analytics -->
-                <div class="elite-card">
+                <!-- LINKED: Analytics -->
+                <a href="Analytics webpage.html" class="elite-card">
                     <div class="card-img-box">
                         <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800" class="card-img" alt="Analytical Data">
                     </div>
@@ -254,10 +260,10 @@
                         <h3>Analytics</h3>
                         <p>Real-time heatmaps, predictive AI metrics, and sub-frame performance tracking.</p>
                     </div>
-                </div>
+                </a>
 
-                <!-- Pro Training -->
-                <div class="elite-card">
+                <!-- LINKED: Pro Training -->
+                <a href="Pro Traning webpage.html" class="elite-card">
                     <div class="card-img-box">
                         <img src="https://images.unsplash.com/photo-1542751110-97427bbecf20?q=80&w=800" class="card-img">
                     </div>
@@ -265,10 +271,10 @@
                         <h3>Pro Training</h3>
                         <p>Elite coaching modules driven by ex-champions and tactical masters.</p>
                     </div>
-                </div>
+                </a>
 
-                <!-- Sponsors -->
-                <div class="elite-card">
+                <!-- LINKED: Sponsors -->
+                <a href="sponsor webpage.html" class="elite-card">
                     <div class="card-img-box">
                         <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800" class="card-img">
                     </div>
@@ -276,7 +282,7 @@
                         <h3>Sponsors</h3>
                         <p>Securing high-stakes partnerships with the world's leading tech brands.</p>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
 
@@ -299,9 +305,10 @@
         <div id="page-login" class="page-view">
             <div class="login-box">
                 <h2 style="color: var(--primary-red); margin-bottom: 2rem; text-align: center;">Login Portal</h2>
-                <form onsubmit="event.preventDefault(); alert('Identity Confirmed. Access Granted.');">
-                    <input type="email" placeholder="IDENTITY@RIVALS.GG" required>
-                    <input type="password" placeholder="SECURITY KEY" required>
+                <!-- ADDED FORM ID FOR DATABASE STORAGE -->
+                <form id="loginForm">
+                    <input type="email" id="loginEmail" placeholder="IDENTITY@RIVALS.GG" required>
+                    <input type="password" id="loginPassword" placeholder="SECURITY KEY" required>
                     <button type="submit" class="btn" style="width: 100%;">Authorize Session</button>
                 </form>
             </div>
@@ -313,6 +320,48 @@
         &copy; 2024 RIVALS LOGIN PORTAL // ESTABLISHED FOR VICTORY
     </footer>
 
+    <!-- FIREBASE DATABASE SYSTEM -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+        // Your specific Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyBiP31P4r3it5-cLmlfmKCdYQzfQ77dD5A",
+            authDomain: "rivals-nexus-f28f0.firebaseapp.com",
+            projectId: "rivals-nexus-f28f0",
+            storageBucket: "rivals-nexus-f28f0.firebasestorage.app",
+            messagingSenderId: "975171196085",
+            appId: "1:975171196085:web:da142147b2f1c0f0fa1afc",
+            measurementId: "G-69B5HM9GLF"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // Handle Login Submission
+        const loginForm = document.getElementById('loginForm');
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const data = {
+                email: document.getElementById('loginEmail').value,
+                timestamp: serverTimestamp()
+            };
+
+            try {
+                // Storing login details in Firebase collection 'login_attempts'
+                await addDoc(collection(db, "login_attempts"), data);
+                alert("IDENTITY CONFIRMED. Entry logged in secure database.");
+                loginForm.reset();
+            } catch (error) {
+                console.error("Database Error: ", error);
+                alert("Database Error: " + error.message);
+            }
+        });
+    </script>
+
+    <!-- UI NAVIGATION LOGIC -->
     <script>
         function showPage(pageId) {
             // Hide all views
@@ -327,7 +376,8 @@
             document.getElementById('page-' + pageId).classList.add('active');
             
             // Highlight active nav link
-            document.getElementById('nav-' + pageId).classList.add('active');
+            const navLink = document.getElementById('nav-' + pageId);
+            if(navLink) navLink.classList.add('active');
 
             window.scrollTo(0, 0);
         }

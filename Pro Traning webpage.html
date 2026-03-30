@@ -58,7 +58,8 @@
             z-index: 1000;
         }
 
-        .logo { font-family: 'Syncopate', sans-serif; color: var(--red); font-size: 1.2rem; }
+        /* Added link style for logo */
+        .logo { font-family: 'Syncopate', sans-serif; color: var(--red); font-size: 1.2rem; text-decoration: none; }
 
         /* Hero */
         .hero {
@@ -118,9 +119,12 @@
 <body>
 
     <nav>
-        <!-- Changed logo text below -->
-        <div class="logo">TRAINING DECK</div>
-        <div style="font-size: 0.7rem; font-weight: bold;">[ TRAINING_PROTOCOL_04 ]</div>
+        <!-- Linked back to FrontEnd -->
+        <a href="FrontEnd.html" class="logo">TRAINING DECK</a>
+        <div style="font-size: 0.7rem; font-weight: bold; display: flex; gap: 20px; align-items: center;">
+            <a href="FrontEnd.html" style="text-decoration: none; color: black; border-right: 1px solid #ccc; padding-right: 20px;">BACK TO ARENA</a>
+            <span>[ TRAINING_PROTOCOL_04 ]</span>
+        </div>
     </nav>
 
     <header class="hero">
@@ -195,6 +199,9 @@
     </div>
 
     <footer>
+        <div style="margin-bottom: 20px;">
+            <a href="FrontEnd.html" style="color: var(--red); text-decoration: none; font-weight: bold;">← RETURN TO MAIN PORTAL</a>
+        </div>
         TRAINING DECK ESports TRAINING &copy; 2024 | DESIGNED FOR THE 1%
     </footer>
 
